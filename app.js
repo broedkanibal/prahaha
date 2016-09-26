@@ -1,5 +1,4 @@
 var initBikes = function() {
-    // BIKE STUFF
     var url = "https://api.tfl.gov.uk/BikePoint?app_id=cc48b9df&app_key=c971b37f601d2e9a85bab35ab46125b5";
     $.getJSON(url, function(bikePoints) {
         initMap(bikePoints);
@@ -15,15 +14,7 @@ function initMap(bikePoints) {
     setMarkers(map, bikePoints);
 }
 
-// var beaches = [
-//     ['Bondi Beach', -33.890542, 151.274856, 4],
-//     ['Coogee Beach', -33.923036, 151.259052, 5],
-//     ['Cronulla Beach', -34.028249, 151.157507, 3],
-//     ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-//     ['Maroubra Beach', -33.950198, 151.259302, 1]
-// ];
-
-var beaches = [];
+var bicycles = [];
 
 
 function setMarkers(map, bikePoints) {
@@ -41,11 +32,11 @@ function setMarkers(map, bikePoints) {
 
     for (var i = 0; i < bikePoints.length; i++) {
         var a = [bikePoints[i].commonName,bikePoints[i].lat,bikePoints[i].lon]
-        beaches.push(a);
+        bicycles.push(a);
         // console.log("Lat: " + bikePoints[i].lat + " - Lon:" + bikePoints[i].lon);
     }
-    for (var i = 0; i < beaches.length; i++) {
-        var beach = beaches[i];
+    for (var i = 0; i < bicycles.length; i++) {
+        var beach = bicycles[i];
         var marker = new google.maps.Marker({
             position: { lat: beach[1], lng: beach[2] },
             map: map,
